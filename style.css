@@ -1,0 +1,712 @@
+@import url('https://fonts.googleapis.com/css2?family=Pixelify+Sans&display=swap');
+@media (max-width: 600px) {
+  .back,
+  .background-img {
+    object-fit: cover;
+    height: 100vh;
+    width: 100vw;
+  }
+
+  .fish-gif {
+    width: 50%;
+    bottom: 10%;
+    right: 5%;
+  }
+
+  .plant-gif {
+    width: 70%;
+    bottom: 10%;
+    left: 0;
+  }
+
+  .robot-gif {
+    width: 1%;
+    bottom: 5%;
+    left: 30%;
+  }
+}
+
+
+@media (max-width: 1600px){
+.overlay,
+  .game-overlay {
+    font-size: 1.1vw;
+    flex-direction: column; 
+  }}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  font-family: monospace;
+}
+
+/*navigation bar*/
+  .nav-bar {
+  width: 100%;
+  background-color: #ffffff;
+  padding: 10px 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1500;
+ 
+}
+
+.nav-list {
+  display: flex;
+  justify-content: space-between; 
+  align-items: center;
+  width: 100%;
+  padding: 0 20px;
+  list-style: none;
+  font-family: 'Pixelify Sans', sans-serif;
+}
+
+.nav-left {
+  display: flex;
+  align-items: center;
+  gap: 10px; 
+}
+
+.nav-list > li {
+  margin: 0; 
+}
+
+.ad-item {
+  margin-left: auto;
+}
+
+.logo-item {
+  margin-right: auto; 
+  padding-right: 20%;
+}
+
+.nav-logo {
+  height: 40px;
+}
+
+  .nav-link {
+  color: rgb(0, 0, 0);
+  text-decoration: none;
+  background-color: #ffffff;
+  padding: 10px 30px; 
+  border-radius: 0px;
+  font-size: 16px;
+  display: inline-block;
+}
+
+  .nav-link:hover {
+  background-color: #ffffff;
+  color: #2e7d32;
+  text-shadow: 0 0 8px rgba(207, 255, 95, 0.8);
+
+}
+
+/* PHISHING PAGE STYLES */
+
+.PhishngPage {
+  height: auto;
+  min-height: 100%;
+  overflow: auto;
+  background-color: #f7f9fc;
+}
+
+.phishing-content {
+  font-family: 'Pixelify Sans', sans-serif;
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+  color: #333;
+  line-height: 1.6;
+}
+ 
+.phishing-content h1,
+.phishing-content h2 {
+ font-family: 'Pixelify Sans', sans-serif;
+   color: #0056b3;
+  margin-top: 2rem;
+}
+ 
+.phishing-content ul {
+  margin-left: 1.5rem;
+  margin-bottom: 1rem;
+}
+ 
+.phishing-content table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 1.5rem;
+}
+ 
+.phishing-content th,
+.phishing-content td {
+  border: 1px solid #ddd;
+  padding: 0.5rem 1rem;
+  text-align: left;
+}
+ 
+.phishing-content th {
+  background-color: #f2f2f2;
+}
+/* end of phishing page*/
+
+
+.back,
+.background-img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover; 
+  image-rendering: pixelated;
+  z-index: 0;
+}
+
+.container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  height: auto;   
+  aspect-ratio: 810 / 430;
+  display: flex;
+  justify-content: center;
+  padding-left: 50px;
+}
+
+.plant-gif {
+  position: absolute;
+  width: 25%;
+  height: auto;
+  bottom: 7%;
+  left: -2%;
+  z-index: 2;
+  pointer-events: none;
+  image-rendering: pixelated;
+}
+
+.fish-gif {
+  position: absolute;
+  width: 18%;
+  height: auto;
+  bottom: 4%;
+  right: 2%;
+  z-index: 2;
+  pointer-events: none;
+  image-rendering: pixelated;
+}
+
+.robot-gif {
+  position: absolute;
+  width: 12%;
+  height: auto;
+  bottom: 5%;
+  left: 15%;
+  z-index: 2;
+  pointer-events: none;
+  image-rendering: pixelated;
+}
+
+.phish-image {
+  width: 400px;
+  height: auto;
+  image-rendering: pixelated;
+}
+
+.overlayInst, .overlay, .game-overlay {
+  position: absolute;
+  top: 48%;
+  left: 50%;
+  transform: translate(-50%, -55%);
+  width: 80%;       /* same width as container */
+  height: 60%;  
+  max-width: 64%;
+  min-width: 60%;
+  aspect-ratio: 810 / 410;
+  background-color: white;
+  border-radius: 0px;
+  z-index: 1;
+  overflow: hidden;
+  display: flex;
+  flex-direction: row;
+  font-size: 1.1vw; /* Scales with screen width */
+}
+
+.overlayInst{
+   flex-direction: column;
+}
+.overlayInst  h1 {
+  color: #2d3e50;
+  padding: 2%;
+  text-align: center;
+  font-family: 'Pixelify Sans', sans-serif;
+}
+.overlayInst h3, p{
+  padding: 2%;
+}
+.overlayInst .img-button{
+  width: 12%;       
+  position: fixed;  
+  bottom: 20px;      
+  right: 20px;       
+  cursor: pointer;
+  transition: transform 0.3s ease;
+  z-index: 100;     
+}
+
+.overlay .img-button {
+  width: 30%;  
+  text-align: center;        
+  height: auto;          
+  cursor: pointer;
+  align-items: center;
+  border: none;
+  image-rendering: pixelated;
+}
+
+.menu-version {
+  position: relative;
+  padding-top: 7vh;
+  top: 0;
+  left: -2vw;
+  transform: none;
+  width: 100%;
+  height: 100%;
+  background-color: transparent;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.menu-center {
+  transform: translateY(-2vw);
+  margin-top: -2vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+
+.button-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: 'Pixelify Sans', sans-serif;
+  color: white;
+  font-size: 3vw;
+  pointer-events: none;
+  text-shadow: 1px 1px 2px black;
+}
+
+
+
+
+
+
+
+
+/* 📁 Left sidebar */
+.sidebar {
+  width: 30%;
+  background-color: #2d3e50;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+}
+.sidebar h3{
+padding-left: 5px;
+padding-bottom: 10px;
+
+}
+.menu {
+  margin: 10px 10px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.email-list {
+    gap: 10px; /* space between emails */
+  max-height: 90%;          /* Fix height so scroll works well */
+  overflow-y: auto;           /* Enable vertical scroll */
+  scroll-behavior: smooth;    /* Smooth scrolling effect */
+  padding-right: 8px;         /* Avoid content getting hidden behind scrollbar */
+  /* Optional: hide scrollbar for WebKit browsers */
+  scrollbar-width: thin;      /* Firefox scrollbar size */
+  scrollbar-color: #ffffff transparent;
+}
+
+/* Optional: hide scrollbar in WebKit (Chrome, Safari) */
+.email-list::-webkit-scrollbar {
+  width: 6px;
+}
+
+.email-list::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.email-list::-webkit-scrollbar-thumb {
+  background-color: rgba(0,0,0,0.2);
+  border-radius: 3px;
+}
+
+.email-box {
+   margin-bottom: 4px;
+  background-color: #ffffff;
+  color: rgb(45, 43, 43);
+  border: 3px solid #c2c1c1;
+  padding: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.email-box:hover {
+   color: rgb(45, 43, 43);
+  border: 3px solid #c2c1c1;
+  padding: 10px;
+  background-color: #e6f0ff;
+}
+/*Email preview */
+.email-preview {
+  flex: 1;
+  /*padding: 20px;*/
+  padding: 40px 20px 20px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px; /* consistent spacing between children */
+  justify-content: flex-start; /* avoid large space-between */
+}
+
+.email-header {
+  background-color: #ddd;
+  padding: 8px;
+  border-radius: 4px;
+  margin-top: 0; /* remove margin to avoid gap */
+  font-weight: bold;
+}
+
+.email-body {
+  max-height: 90%; /* أو أي ارتفاع يناسب تصميمك */
+  overflow-y: auto;
+  padding-right: 10px;
+  padding: 8px;
+  background-color: #fff;
+  border: 3px solid #ccc;
+  border-radius: 4px;
+  margin-top: 0; /* remove margin */
+  line-height: 1.4;
+}
+
+.email-actions {
+  display: flex;
+  justify-content:center;
+  gap: 12px; /* space between buttons */
+  margin-top: 0; /* remove margin */
+  
+}
+
+.action-btn {
+  padding: 8px 16px;
+  font-size: 1.1vw;
+  background-color: #2d3e50;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.action-btn:hover {
+  background-color: #4a637e;
+}
+
+.img-button {
+  cursor: pointer;
+  image-rendering: pixelated; /* if pixel style */
+  border: none;
+}
+
+.image-link {
+  width: 12vw;  /* or adjust based on your preferred size */
+  height: auto;
+  position: relative;
+}
+
+.image-link img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.image-link .button-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: 'Pixelify Sans', sans-serif;
+  color: white;
+  font-size: 2vw;
+  pointer-events: none;
+  text-shadow: 1px 1px 2px black;
+}
+
+
+
+
+
+
+
+/*name*/
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0,0,0,0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background: white;
+  padding: 30px;
+  border-radius: 10px;
+  width: 320px;
+  text-align: center;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+}
+
+
+
+
+.quiz {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 400px;               /* Make it wider */
+  max-width: 90vw;
+  background-color: #ffffff;
+  border: 2px solid #a0a0a0;
+  border-radius: 10px;
+  padding: 20px 25px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  z-index: 9999;
+  font-family: Arial, sans-serif;
+  text-align: center;
+}
+
+.quiz p {
+  font-size: 16px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.quiz-option {
+  display: block;
+  width: 100%;
+  margin: 8px 0;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #aaa;
+  background-color: #f1f1f1;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.quiz-option:hover {
+  background-color: #dbeeff;
+}
+
+.quiz-option.selected {
+  background-color: #cce5ff;
+  font-weight: bold;
+  border-color: #007bff;
+}
+
+.submit-btn {
+  margin-top: 15px;
+  padding: 10px 16px;
+  font-size: 15px;
+  background-color: #2d3e50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.submit-btn:hover {
+  background-color: #4a637e;
+}
+.quiz-feedback {
+  margin-top: 10px;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.quiz-feedback.success {
+  color: green;
+}
+
+.quiz-feedback.error {
+  color: red;
+}
+
+.quiz-option.selected {
+  background-color: #cce5ff;
+  border: 2px solid #3399ff;
+}
+
+
+
+
+
+
+
+
+
+    #scoreboard {
+      position: fixed;
+      top: 2%; /* moved higher from 10% to 5% */
+      left: 85%;
+      transform: translateX(-50%);
+      z-index: 999;
+      display: flex;
+      align-items:flex-end;
+      gap: 5%;
+      /*padding: 10px 16px;*/
+      border-radius: 10px;
+      
+      font-family: Arial, sans-serif;
+      font-weight: bold;
+      margin-top: 0px;
+      font-size: 1.2vw;
+    }
+
+    #score-icon {
+      width: 24%;
+      height: 24%;
+    }
+
+
+    /* Modal background */
+
+
+
+
+/* Modal heading */
+.modal-content h2 {
+  margin-bottom: 15px;
+  font-weight: 700;
+  font-size: 1.3rem;
+  color: #222;
+}
+
+/* Modal paragraph */
+.modal-content p {
+  margin-bottom: 25px;
+  font-size: 1rem;
+  color: #555;
+}
+
+/* Buttons container */
+.modal-buttons {
+  display: flex;
+  justify-content: space-around;
+}
+
+/* Buttons */
+.modal-btn {
+  padding: 10px 25px;
+  border: none;
+  border-radius: 12px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  font-weight: 600;
+  min-width: 110px;
+}
+
+/* Yes Leave button */
+#confirmLeaveBtn {
+  background-color: #274360;
+  color: white;
+}
+
+#confirmLeaveBtn:hover {
+  background-color: #172738;
+}
+
+/* Cancel button */
+#cancelLeaveBtn {
+  background-color: #f0f0f0;
+  color: #333;
+}
+
+#cancelLeaveBtn:hover {
+  background-color: #dcdcdc;
+}
+
+
+.fake-attachment {
+  display: inline-flex;
+  align-items: center;
+  border: 1.5px solid #ccc;
+  padding: 8px 12px;
+  border-radius: 6px;
+  background-color: #f9f9f9;
+  cursor: pointer;
+  width: fit-content;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+  margin: 10px 0;
+  transition: background-color 0.3s ease;
+}
+ 
+.fake-attachment:hover {
+  background-color: #e5f5ff;
+  border-color: rgb(19, 118, 172);
+}
+ 
+.file-icon {
+  height: 20px;
+  width: auto;
+  margin-right: 8px;
+}
+
+
+#reportBtn {
+  background-color: #c62828; /* red */
+  color: white;
+}
+
+#reportBtn:hover {
+  background-color: #a01818;
+}
+
+#trustBtn {
+  background-color: #2e7d32; /* green */
+  color: white;
+}
+
+#trustBtn:hover {
+  background-color: #256428;
+}
+
+html, body {
+  height: 100%;
+  overflow-y: auto;
+}

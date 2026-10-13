@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link rel="shortcut icon" type="x-icon" href="assets/fish-logo2.png">
+  <title>Do not get Phished!</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  
+  <!-- Navigation Bar -->
+  <nav class="nav-bar">
+    <ul class="nav-list">
+      <div class="nav-left">
+        <li><img src="assets/fish-logo2.png" alt="Logo" class="nav-logo"></li>
+        <li><a href="index.html" class="nav-link">Game</a></li>
+        <li><a href="Phishing.html" class="nav-link">Phishing?</a></li>
+        <li><a href="scoreboard.html" class="nav-link">Score Board</a></li>
+      </div>
+    </ul>
+  </nav>
+
+  <img src="assets/back2.png" alt="background" class="back" />
+
+  <div class="container">
+    <img src="assets/desk.png" alt="Background" class="background-img" />
+    <img src="assets/fish2.gif" alt="Fish" class="fish-gif" />
+    <img src="assets/bosnai.gif" alt="Plant" class="plant-gif" />
+    <img src="assets/robot.gif" alt="Robot" class="robot-gif" />
+
+    <!-- Game Interface -->
+    <div class="game-overlay">
+      <div class="sidebar">
+        <h3>Inbox</h3>
+        <div class="email-list">
+          <!-- Emails will be dynamically inserted here -->
+        </div>
+      </div>
+
+      <div class="email-preview">
+
+
+        <div id="scoreboard">
+          <img src="assets/star.png" alt="Score Icon" id="score-icon" />
+          <span id="score-text">Score: 0</span>
+        </div>
+
+        <div class="email-header" id="emailHeader"></div>
+        <div class="email-body" id="emailBody"></div>
+
+        <div class="email-actions">
+          <button class="action-btn" id="reportBtn">Report Phishing</button>
+          <button class="action-btn" id="trustBtn">Trust Email</button>
+        </div>     
+
+      </div>
+    </div>
+  </div>
+
+  <!-- Confirm Leave Modal -->
+  <div id="leaveConfirmModal" class="modal" style="display:none;">
+    <div class="modal-content">
+      <h2>Are you sure you want to leave?</h2>
+      <p>If you leave now, your progress will not be saved.</p>
+      <div class="modal-buttons">
+        <button id="confirmLeaveBtn" class="modal-btn">Yes, Leave</button>
+        <button id="cancelLeaveBtn" class="modal-btn">Cancel</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- End Game Modal -->
+  <div id="endGameModal" class="modal" style="display: none;">
+    <div class="modal-content">
+      <h2 id="endTitle">Game Over</h2>
+      <pre id="endMessage" style="white-space: pre-line; text-align: left;"></pre>
+      <p id="scoreSaveStatus" role="status"></p>
+      <button id="playAgainBtn" class="modal-btn">Play Again</button>
+    </div>
+  </div>
+
+  <!-- Link JavaScript -->
+  <script src="playScript.js"></script>
+</body>
+</html>

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link rel="shortcut icon" type="x-icon" href="assets/fish-logo2.png">
+  <title>Score Board | Do not get Phished!</title>
+  <link rel="stylesheet" href="style.css" />
+
+  <!-- Load Pixelify Sans Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      background-color: #f7f9fc;
+    }
+
+    .scoreboard-container {
+      margin-top: 100px;
+      text-align: center;
+      padding: 20px;
+    }
+
+    .scoreboard-title {
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+      color: #2d3e50;
+      font-family: 'Pixelify Sans', sans-serif;
+    }
+
+    table.leaderboard {
+      width: 80%;
+      margin: 0 auto;
+      border-collapse: collapse;
+      font-size: 1.2rem;
+    }
+
+    table.leaderboard th,
+    table.leaderboard td {
+      border: 1px solid #ccc;
+      padding: 12px;
+      text-align: center;
+    }
+
+    table.leaderboard th {
+      background-color: #f2f2f2;
+      color: #333;
+    }
+
+    .top-1 {
+      background-color: gold;
+      font-weight: bold;
+    }
+
+    .top-2 {
+      background-color: silver;
+      font-weight: bold;
+    }
+
+    .top-3 {
+      background-color: #cd7f32;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <nav class="nav-bar">
+    <ul class="nav-list">
+      <div class="nav-left">
+        <li><img src="assets/fish-logo2.png" alt="Logo" class="nav-logo"></li>
+        <li><a href="index.html" class="nav-link">Game</a></li>
+        <li><a href="Phishing.html" class="nav-link">Phishing?</a></li>
+        <li><a href="scoreboard.html" class="nav-link">Score Board</a></li>
+      </div>
+    </ul>
+  </nav>
+
+  <!-- Scoreboard -->
+  <div class="scoreboard-container">
+    <h1 class="scoreboard-title">🏆 Top Players</h1>
+    <table class="leaderboard">
+      <thead>
+        <tr>
+          <th>Rank</th>
+          <th>Name</th>
+          <th>Score</th>
+        </tr>
+      </thead>
+        <tbody id="leaderboard-body">
+          <!-- Scores will be populated dynamically via JavaScript -->
+        </tbody>
+
+    </table>
+  </div>
+
+  <p id="leaderboard-status" role="status" style="text-align:center"></p>
+  <script src="scoreboard.js"></script>
+
+
+</body>
+</html>
