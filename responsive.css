@@ -1,0 +1,93 @@
+/* The artwork is 120 x 60. Screen interior: x21–99, y7–44. */
+html, body { min-height: 100%; height: auto; }
+body { width: auto; overflow: auto; background: #eaf4f6; color: #223746; }
+.nav-bar { position: relative; z-index: 10; padding: 8px 0; }
+.nav-list { padding: 0 16px; }
+.nav-list { gap: 8px; flex-wrap: wrap; }
+.music-toggle { min-height: 40px; padding: 8px 12px; border: 2px solid #72bcce; border-radius: 6px; background: #f5f8fa; color: #223746; font: inherit; cursor: pointer; }
+.music-toggle { display: inline-flex; align-items: center; justify-content: center; min-width: 44px; min-height: 44px; padding: 8px; }
+.music-toggle img { display: block; width: 24px; height: 24px; image-rendering: pixelated; }
+.nav-left { flex-wrap: wrap; gap: 4px; }
+.nav-link { padding: 12px 16px; font-size: 16px; }
+.nav-logo { width: 38px; height: 38px; object-fit: contain; }
+.back { position: fixed; width: 100%; height: 100%; object-fit: cover; pointer-events: none; }
+.container { width: 100%; height: auto; aspect-ratio: 2 / 1; margin: 0 auto; padding: 0; display: block; }
+.background-img { width: 100%; height: 100%; object-fit: contain; pointer-events: none; }
+.overlay, .overlayInst, .game-overlay {
+  position: absolute; left: 17.5%; top: 11.6667%; width: 65%; height: 61.6667%;
+  min-width: 0; max-width: none; aspect-ratio: auto; transform: none;
+  border-radius: 0; font-size: 16px; background: #f5f8fa; overflow: auto;
+}
+.overlay.menu-version { display: grid; place-items: center; padding: 20px; }
+.menu-center { margin: 0; transform: translateY(clamp(12px, 2vw, 36px)); gap: clamp(16px, 2vw, 32px); max-width: 90%; }
+.menu-center h1 { font-size: clamp(40px, 5.2vw, 104px) !important; line-height: 1.15; }
+.menu-center h3 { font-size: clamp(20px, 1.9vw, 36px); line-height: 1.5; max-width: 38em; }
+.menu-center br { display: none; }
+.image-link { width: clamp(150px, 12vw, 240px); display: block; }
+.image-link .button-text { font-size: clamp(24px, 2vw, 36px); }
+.overlayInst { display: flex; flex-direction: column; padding: 20px; gap: 12px; }
+.overlayInst h1 { padding: 0; font-size: 28px; }
+.overlayInst p, .overlayInst h3 { padding: 0 !important; margin: 0 !important; font-size: 16px; line-height: 1.5; }
+#nameForm { padding: 0 !important; display: flex; flex-wrap: wrap; gap: 12px; align-items: center; }
+#nameForm label { font-size: 16px !important; padding: 0 !important; }
+#userName { width: min(100%, 240px) !important; margin: 0 !important; font-size: 16px !important; min-height: 44px; }
+#nameForm input[type=image] { width: 100px !important; }
+#nameForm .button-text { font-size: 20px !important; }
+/* Anchor the visible bases to the desk surface, accounting for sprite margins. */
+.plant-gif { width: 18%; bottom: 6%; left: 0; }
+.fish-gif { width: 14%; bottom: 3%; right: 4%; }
+.robot-gif { width: 18%; bottom: 3%; left: 3%; z-index: 3; }
+.game-overlay { display: grid; grid-template-columns: minmax(160px, 29%) minmax(0, 1fr); overflow: hidden; }
+.sidebar { width: auto; min-width: 0; min-height: 0; padding: 12px; gap: 8px; }
+.sidebar h3 { padding: 0; }
+.email-list { min-height: 0; max-height: none; overflow: auto; padding: 0 4px 0 0; flex: 1; }
+.email-box { font: inherit; text-align: left; width: 100%; padding: 10px; line-height: 1.4; overflow-wrap: anywhere; }
+.email-box:hover { padding: 10px; }
+.email-preview { min-width: 0; min-height: 0; padding: 12px; display: grid; grid-template-columns: minmax(0, 1fr); grid-template-rows: auto auto minmax(0, 1fr) auto; justify-content: stretch; gap: 8px; }
+#scoreboard { position: static; z-index: auto; transform: none; font-size: 16px; justify-content: flex-end; align-items: center; gap: 8px; }
+#score-icon { width: 22px; height: 22px; object-fit: contain; }
+.email-header { font: 14px/1.5 Arial, sans-serif; overflow-wrap: anywhere; }
+.email-body { min-height: 0; max-height: none; overflow: auto; padding: 8px; font: 16px/1.5 Arial, sans-serif; overflow-wrap: anywhere; border-width: 1px; }
+.email-body p { padding: 0; margin: 8px 0; }
+.email-body a { overflow-wrap: anywhere; }
+.email-actions { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+.action-btn { font-size: 14px; padding: 10px 8px; min-height: 44px; }
+button:disabled { opacity: .55; cursor: default; }
+button:focus-visible, a:focus-visible, input:focus-visible { outline: 3px solid #087dad; outline-offset: 2px; }
+.quiz { position: absolute; inset: auto; top: 50%; left: 50%; width: min(500px, calc(100% - 24px)); max-width: none; max-height: calc(100% - 24px); transform: translate(-50%, -50%); overflow: auto; padding: 16px; z-index: 5; box-shadow: 0 0 0 2000px rgb(20 35 48 / 45%); }
+.quiz p { padding: 0; margin-bottom: 12px; }
+.quiz-option { min-height: 44px; font-size: 15px; }
+.modal { z-index: 100; padding: 16px; height: 100dvh; }
+.modal-content { width: min(100%, 460px); max-height: 90dvh; overflow: auto; padding: 24px; }
+.modal-buttons { gap: 8px; flex-wrap: wrap; }
+.scoreboard-container { position: relative; margin: 32px auto; padding: 16px; max-width: 900px; }
+table.leaderboard { width: 100%; font-size: 16px; }
+.phishing-content { margin: 24px auto; font: 16px/1.7 Arial, sans-serif; }
+@media (max-width: 900px) {
+  /* A taller monitor frame gives phones a readable screen without shrinking text. */
+  .container { width: calc(100% - 24px); margin: 24px auto 50px; aspect-ratio: auto; height: 760px; height: clamp(650px, 88dvh, 900px); border: 10px solid #bcbcbc; border-bottom-width: 24px; border-radius: 6px; background: #f5f8fa; box-shadow: 0 8px 0 #929292; }
+  .background-img, .fish-gif, .plant-gif, .robot-gif { display: none; }
+  .overlay, .overlayInst, .game-overlay { inset: 0; width: 100%; height: 100%; }
+  .game-overlay { grid-template-columns: minmax(150px, 30%) minmax(0, 1fr); }
+  .menu-center h1 { font-size: 42px !important; }
+}
+@media (max-width: 600px) {
+  .nav-list { padding: 0 8px; }
+  .nav-link { padding: 12px 10px; font-size: 14px; }
+  .game-overlay { grid-template-columns: minmax(0, 1fr); grid-template-rows: 145px minmax(0, 1fr); }
+  .sidebar { padding: 10px; }
+  .email-list { display: flex; gap: 8px; padding: 0 0 4px; overflow-x: auto; }
+  .email-box { flex: 0 0 190px; margin: 0; font-size: 14px; }
+  .email-preview { padding: 10px; }
+  .overlayInst { padding: 16px; }
+  .menu-center h1 { font-size: 36px !important; }
+}
+/* Reserve the actual navigation height and fit the complete scene below it. */
+body.game-page { height: 100vh; height: 100dvh; min-height: 0; overflow: hidden; display: flex; flex-direction: column; background-color: #d9eef8; background-image: repeating-linear-gradient(to right, #d9eef8 0 28px, #c7e3f1 28px 32px); }
+.game-page .nav-bar { flex: none; }
+.scene-viewport { flex: 1; min-height: 0; width: 100%; container-type: size; display: grid; place-items: start center; overflow: hidden; }
+.scene-viewport > .container { width: min(100cqw, 200cqh); margin: 0 auto; }
+@media (max-width: 900px) {
+  .scene-viewport > .container { width: calc(100% - 24px); height: calc(100cqh - 24px); min-height: 0; margin: 8px auto 16px; }
+}
+@media (prefers-reduced-motion: reduce) { * { scroll-behavior: auto !important; transition: none !important; } }

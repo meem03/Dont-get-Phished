@@ -19,4 +19,12 @@ For local function development, copy `.env.example` to `.env`, fill it privately
 
 ## Scoreboard limits
 
-This is a casual, anonymous leaderboard. The server validates names and score ranges, but cannot prove a score was earned in the browser. Players sharing a name share a record. JSONBin updates replace the board, so simultaneous submissions can overwrite one another. For prizes, verified results, or heavy traffic, use authenticated server-verified games and a database with atomic updates. The board retains the top 100 records.
+This is a casual, anonymous leaderboard. The server validates names and score ranges, but cannot prove a score was earned in the browser. The entry form checks leaderboard names without regard to capitalization and suggests a numbered alternative. Each submission creates a separate result; the server adds a numeric suffix if a name was taken during play, preserving the existing result. Names are not reserved and do not establish identity. Static local previews skip the online name check. JSONBin updates replace the board, so simultaneous submissions can overwrite one another; this is not an atomic uniqueness guarantee. For prizes, verified results, or heavy traffic, use authenticated server-verified games and a database with atomic updates. The board retains the top 100 records; names outside those records are not reserved.
+
+## Responsive layout
+
+`responsive.css` overrides the original styles. On desktop the scene keeps the artwork's actual 2:1 proportions. The current `deskAndMousepad.png` sprite is 120 x 60 pixels. Its screen interior starts at pixel (21, 7) and measures 78 x 37 pixels. The overlay uses these proportions. `assets/images/desk.png` is retained as the previous-artwork fallback; restore its earlier screen bounds (left 20%, top 15%, width 60%, height 58.3%) when reverting. Grid lays out the inbox and email inside that rectangle; only decoration uses scene positioning. Long email bodies scroll independently, leaving the answer buttons visible.
+
+Below 900px, a taller CSS monitor frame replaces the wide desk scene. Below 600px, the inbox becomes a horizontal strip above the email. Quizzes remain inside the monitor screen. This preserves readable text instead of shrinking the whole desktop scene to a phone width.
+
+Run `npm run preview` and open http://127.0.0.1:4173 to review the game locally. The preview serves static files only; saving scores requires Netlify. Check a desktop window, a narrow phone window, long emails, quizzes, and the end-game dialog before deploying layout changes.

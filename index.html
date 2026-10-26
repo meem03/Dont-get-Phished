@@ -4,16 +4,20 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Do Not Get Phished!</title>
-  <link rel="shortcut icon" href="assets/fish-logo2.png" type="image/x-icon" />
-  <link rel="stylesheet" href="style.css" />
+  <link rel="shortcut icon" href="assets/images/fish-logo2.png" type="image/x-icon" />
+  <link rel="stylesheet" href="style.css" /><link rel="stylesheet" href="responsive.css" />
+  <link rel="preload" href="assets/fonts/pixelon/Pixelon.ttf" as="font" type="font/ttf" crossorigin />
+  <link rel="preload" href="assets/fonts/karmatic-arcade/ka1.ttf" as="font" type="font/ttf" crossorigin />
+  <link rel="stylesheet" href="menu.css" />
+  <script src="music.js" defer></script>
 </head>
-<body>
+<body class="game-page">
 
   <!-- Navigation Bar -->
   <nav class="nav-bar">
     <ul class="nav-list">
       <div class="nav-left">
-        <li><img src="assets/fish-logo2.png" alt="Logo" class="nav-logo"></li>
+        <li><img src="assets/images/fish-logo2.png" alt="Logo" class="nav-logo"></li>
         <li><a href="index.html" class="nav-link">Game</a></li>
         <li><a href="Phishing.html" class="nav-link">Phishing?</a></li>
         <li><a href="scoreboard.html" class="nav-link">Score Board</a></li>
@@ -22,30 +26,35 @@
   </nav>
 
   <!-- Background Layer -->
-  <img src="assets/back2.png" alt="Background" class="back" />
 
   <!-- Foreground Scene -->
+  <main class="scene-viewport">
   <div class="container">
-    <img src="assets/desk.png" alt="Desk" class="background-img" />
-    <img src="assets/fish2.gif" alt="Fish2" class="fish-gif" />
-    <img src="assets/bosnai.gif" alt="Plant" class="plant-gif" />
-    <img src="assets/robot.gif" alt="Robot" class="robot-gif" />
+    <img src="assets/images/mainpagemonitor.png" alt="Monitor displaying a pixel-art shoreline and an envelope on the sand" class="background-img" />
+    <img src="assets/images/fish2.gif" alt="Fish2" class="fish-gif" />
+    <img src="assets/images/robot.gif" alt="Robot" class="robot-gif" />
 
 
     <!-- Main Menu -->
     <div class="overlay menu-version">
       <div class="menu-center" >
-        <h1 style=" font-size: 5vw; font-family: 'Pixelify Sans', sans-serif; color: #72bcce;">Do Not Get Phished!</h1>
+        <h1>Do Not Get Phished!</h1>
         <br><br>
-        <h3 style="font-family: 'Pixelify Sans', sans-serif;">Phishing awareness game provided by the cybersecurity department</h3>
         
-        <a href="instruction.html" class="image-link"  >
-          <img src="assets/action-button.png" alt="Play Button" />
-          <div class="button-text">Start</div>
-        </a>
+        <a href="instruction.html" class="image-link">Start</a>
+        <div class="developer-credits">
+          <p>Originally developed by</p>
+          <div class="developer-links">
+            <a href="https://www.linkedin.com/in/meral-alghamdi-791466326/" target="_blank" rel="noopener noreferrer" aria-label="Meral on LinkedIn"><img src="assets/images/linkedin-pixel.svg" alt="" width="18" height="18" />Meral</a>
+            <a href="https://www.linkedin.com/in/ranyah-alzahrani/" target="_blank" rel="noopener noreferrer" aria-label="Ranyah on LinkedIn"><img src="assets/images/linkedin-pixel.svg" alt="" width="18" height="18" />Ranyah</a>
+            <a href="https://www.linkedin.com/in/bshayer-ahmed-bs1/" target="_blank" rel="noopener noreferrer" aria-label="Bshayer on LinkedIn"><img src="assets/images/linkedin-pixel.svg" alt="" width="18" height="18" />Bshayer</a>
+          </div>
+          <p class="development-credit">Redesigned and further developed by <strong>Meral :)</strong></p>
+        </div>
       </div>
     </div>
   </div>
 
+  </main>
 </body>
 </html>

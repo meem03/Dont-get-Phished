@@ -28,11 +28,14 @@ test('scoreboard validates requests and keeps credentials server-side', async ()
       return Response.json({ record: stored });
     };
     assert.equal((await scoreboard(request({ name: 'Alex', score: 20 }))).status, 200);
-    assert.deepEqual(stored, { scores: [{ name: 'Alex', score: 70 }] });
+    assert.deepEqual(stored, { scores: [{ name: 'Alex', score: 70 }, { name: 'Alex-2', score: 20 }] });
     assert.equal((await scoreboard(request({ name: 'Taylor', score: 100 }))).status, 200);
     const read = await scoreboard(new Request('https://game.example/api'));
-    assert.deepEqual(await read.json(), [{ name: 'Taylor', score: 100 }, { name: 'Alex', score: 70 }]);
+    assert.deepEqual(await read.json(), [{ name: 'Taylor', score: 100 }, { name: 'Alex', score: 70 }, { name: 'Alex-2', score: 20 }]);
     assert.equal(writes, 2);
+    const collision = await scoreboard(request({ name: 'alex', score: 80 }));
+    assert.equal((await collision.json()).name, 'alex-3');
+    assert.equal(stored.scores.find(player => player.name === 'Alex').score, 70);
     stored = { scores: [] };
     const empty = await scoreboard(new Request('https://game.example/api'));
     assert.deepEqual(await empty.json(), []);

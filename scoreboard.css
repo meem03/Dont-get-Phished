@@ -1,0 +1,33 @@
+@font-face {
+  font-family: 'Pixelon';
+  src: url('assets/fonts/pixelon/Pixelon.ttf') format('truetype');
+  font-style: normal; font-weight: 400; font-display: swap;
+}
+body {
+  background-color: #d9eef8;
+  background-image: repeating-linear-gradient(to right, #d9eef8 0 28px, #c7e3f1 28px 32px);
+  color: #263b46; font-family: 'Pixelon', monospace;
+}
+.nav-list { font-family: inherit; }
+.scoreboard-container {
+  width: min(850px, calc(100% - 32px)); margin: 32px auto;
+  padding: clamp(20px, 4vw, 40px); text-align: center;
+  background: #fff; border: 2px solid #b8d2df; border-radius: 6px;
+  box-shadow: 0 5px 0 #b8d2df;
+}
+.scoreboard-title { display: flex; align-items: center; justify-content: center; gap: 14px; font-size: clamp(28px, 4vw, 40px); line-height: 1.25; margin: 0 0 12px; color: #284e60; }
+.scoreboard-trophy { width: 48px; height: 48px; image-rendering: pixelated; flex: none; }
+.scoreboard-intro { padding: 0; margin: 0 0 24px; font-size: 18px; color: #526975; }
+table.leaderboard { width: 100%; border-collapse: collapse; table-layout: fixed; font-size: 18px; }
+table.leaderboard th, table.leaderboard td { border: 0; border-bottom: 1px solid #d4e2e9; padding: 14px 10px; text-align: left; overflow-wrap: anywhere; }
+table.leaderboard th { background: #e7f1f6; color: #284e60; font-weight: 400; }
+table.leaderboard th:first-child, table.leaderboard td:first-child { width: 20%; text-align: center; }
+table.leaderboard th:last-child, table.leaderboard td:last-child { width: 25%; text-align: right; }
+.leaderboard .top-1 { background: #faf0cd; }
+.leaderboard .top-2 { background: #eaf0f4; }
+.leaderboard .top-3 { background: #f5e5d8; }
+#leaderboard-status { font-size: 16px; line-height: 1.5; margin-top: 16px; padding: 0; color: #526975; }
+@media (max-width: 600px) {
+  table.leaderboard { font-size: 16px; }
+  table.leaderboard th, table.leaderboard td { padding: 12px 6px; }
+}

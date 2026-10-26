@@ -1,0 +1,48 @@
+@font-face {
+  font-family: 'Pixelon';
+  src: url('assets/fonts/pixelon/Pixelon.ttf') format('truetype');
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+.instructions-page .nav-list, .instructions-page .overlayInst,
+.instructions-page input, .instructions-page button { font-family: 'Pixelon', monospace; }
+.instructions-page .overlayInst {
+  display: flex; flex-direction: column;
+  padding: clamp(12px, 1.4vw, 24px); gap: 10px;
+  color: #222; background: #f7fafb; overflow: auto; text-align: center;
+}
+.instructions-page .overlayInst h1 {
+  font-family: inherit; font-size: clamp(28px, 2.2vw, 40px); padding: 0;
+}
+.instruction-copy { flex: 0 0 auto; overflow: visible; padding: 12px 8px 0; }
+.instructions-page .instruction-copy p {
+  max-width: 60em; margin: 0 auto 8px !important;
+  font-size: clamp(16px, 1.15vw, 21px); line-height: 1.65;
+}
+.instruction-steps { list-style-position: inside; padding: 0; margin: 8px auto; max-width: 60em; }
+.instruction-steps li { font-size: clamp(16px, 1.15vw, 21px); line-height: 1.65; margin-bottom: 8px; }
+.instructions-page .instruction-copy .instruction-note {
+  padding: 10px !important; border-radius: 6px; background: #e6eff3;
+}
+.point-guide { display: grid; gap: 6px; margin: 8px auto; max-width: 44em; }
+.instructions-page .instruction-copy .point-guide p { width: 100%; margin: 0 !important; padding: 10px !important; border-radius: 5px; color: #222; }
+.points-correct { background: #dfefdf; }
+.points-caution { background: #faf0cd; }
+.points-mistake { background: #f4dede; }
+.instructions-page #nameForm { display: grid; grid-template-columns: minmax(0, 1fr); gap: 8px; margin: auto 0 0; flex: 0 0 auto; }
+.name-entry { display: flex; align-items: center; justify-content: center; flex-wrap: wrap; gap: 12px; }
+.instructions-page #nameForm label { font-size: clamp(16px, 1.2vw, 21px) !important; }
+.instructions-page #userName {
+  width: min(200px, 100%) !important; font-size: 16px !important;
+  border: 2px solid #abc4cf; border-radius: 5px; padding: 8px; background: #fff; color: #222;
+}
+.instruction-play {
+  justify-self: end; min-width: 120px; min-height: 46px; padding: 10px 24px;
+  font-size: 22px; color: #222; background: #cfe7ef;
+  border: 2px solid #8eafbd; border-radius: 5px; cursor: pointer;
+  box-shadow: 0 3px 0 #8eafbd;
+}
+.instruction-play:hover { background: #bddce7; }
+#nameStatus { margin: 0; padding: 0; font-size: 14px; line-height: 1.4; color: #31576a; }
+#nameStatus:empty { display: none; }

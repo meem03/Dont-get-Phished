@@ -3,6 +3,7 @@
   "private": true,
   "scripts": {
     "build": "node scripts/build.cjs",
+    "preview": "npm run build && node scripts/preview.cjs",
     "test": "node --test tests/*.test.mjs"
   },
   "engines": { "node": ">=22" }

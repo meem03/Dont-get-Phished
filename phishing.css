@@ -1,0 +1,38 @@
+@font-face {
+  font-family: 'Pixelon';
+  src: url('assets/fonts/pixelon/Pixelon.ttf') format('truetype');
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+body.PhishngPage {
+  background-color: #d9eef8;
+  background-image: repeating-linear-gradient(to right, #d9eef8 0 28px, #c7e3f1 28px 32px);
+  color: #263b46; font-family: 'Pixelon', monospace;
+}
+.PhishngPage .nav-list { font-family: inherit; }
+.phishing-content {
+  width: min(960px, calc(100% - 32px)); max-width: 960px;
+  margin: 32px auto; padding: clamp(20px, 4vw, 48px);
+  background: #fff; border: 2px solid #b8d2df; border-radius: 6px;
+  box-shadow: 0 5px 0 #b8d2df;
+  font-family: 'Pixelon', monospace; font-size: 18px; line-height: 1.75;
+  overflow-wrap: anywhere;
+}
+.phishing-content h1, .phishing-content h2 {
+  font-family: inherit; color: #284e60; line-height: 1.35;
+  margin: 28px 0 12px;
+}
+.phishing-content h1 { margin-top: 0; font-size: clamp(28px, 3vw, 40px); }
+.phishing-content h2 { font-size: clamp(22px, 2vw, 28px); }
+.phishing-content p { padding: 0; margin-bottom: 12px; }
+.phishing-content ul { margin: 0 0 20px; padding-left: 24px; }
+.phishing-content li { margin-bottom: 8px; }
+.phishing-content table { table-layout: fixed; font-size: 16px; line-height: 1.6; }
+.phishing-content th, .phishing-content td { border-color: #d1e0e7; padding: 12px; vertical-align: top; }
+.phishing-content th { background: #e7f1f6; color: #284e60; }
+.phishing-content tbody tr:nth-child(even) { background: #f5f9fb; }
+@media (max-width: 600px) {
+  .phishing-content { margin: 20px auto; font-size: 16px; }
+  .phishing-content th, .phishing-content td { padding: 8px; font-size: 14px; }
+}

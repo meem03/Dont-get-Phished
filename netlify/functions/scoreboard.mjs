@@ -6,7 +6,7 @@ const headers = {
 const reply = (status, body) => new Response(JSON.stringify(body), { status, headers });
 const validPlayer = player => player && typeof player.name === 'string' &&
   player.name.trim().length > 0 && player.name.length <= 20 &&
-  /^[\p{L}\p{M} .'-]+$/u.test(player.name) &&
+  /^[\p{L}\p{M}\p{N} ._'\-]+$/u.test(player.name) &&
   Number.isInteger(player.score) && player.score >= 0 && player.score <= 100 && player.score % 10 === 0;
 
 export default async function scoreboard(request) {
@@ -36,9 +36,15 @@ export default async function scoreboard(request) {
     if (!Array.isArray(scores)) throw new Error('Invalid board');
     const records = scores.filter(validPlayer).map(({ name, score }) => ({ name, score }));
     if (request.method === 'POST') {
-      const existing = records.find(record => record.name === player.name);
-      if (existing) existing.score = Math.max(existing.score, player.score);
-      else records.push(player);
+      const nameKey = name => name.normalize('NFKC').trim().toLowerCase();
+      const taken = new Set(records.map(record => nameKey(record.name)));
+      const originalName = player.name;
+      let suffixNumber = 2;
+      while (taken.has(nameKey(player.name))) {
+        const suffix = `-${suffixNumber++}`;
+        player.name = originalName.slice(0, 20 - suffix.length) + suffix;
+      }
+      records.push(player);
       records.sort((a, b) => b.score - a.score);
       const saved = await fetch(url, {
         method: 'PUT',
@@ -46,7 +52,7 @@ export default async function scoreboard(request) {
         body: JSON.stringify({ scores: records.slice(0, 100) }), signal: AbortSignal.timeout(8000)
       });
       if (!saved.ok) throw new Error('Write failed');
-      return reply(200, { saved: true });
+      return reply(200, { saved: true, name: player.name });
     }
     return reply(200, records.sort((a, b) => b.score - a.score).slice(0, 100));
   } catch {

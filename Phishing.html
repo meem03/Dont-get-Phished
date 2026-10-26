@@ -3,11 +3,12 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <link rel="shortcut icon" type="x-icon" href="assets/fish-logo2.png"></head>
+  <link rel="shortcut icon" type="x-icon" href="assets/images/fish-logo2.png">
   <title>What Is a Phishing Email?</title>
-  <link rel="stylesheet" href="style.css" />
-  <!-- Load the font -->
-  <link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" /><link rel="stylesheet" href="responsive.css" />
+  <link rel="preload" href="assets/fonts/pixelon/Pixelon.ttf" as="font" type="font/ttf" crossorigin />
+  <link rel="stylesheet" href="phishing.css" />
+  <script src="music.js" defer></script>
 </head>
 <body class="PhishngPage">
 
@@ -16,7 +17,7 @@
   <nav class="nav-bar">
     <ul class="nav-list">
       <div class="nav-left">
-        <li><img src="assets/fish-logo2.png" alt="Logo" class="nav-logo"></li>
+        <li><img src="assets/images/fish-logo2.png" alt="Logo" class="nav-logo"></li>
         <li><a href="index.html" class="nav-link">Game</a></li>
         <li><a href="Phishing.html" class="nav-link">Phishing?</a></li>
         <li><a href="scoreboard.html" class="nav-link">Score Board</a></li>
@@ -24,9 +25,9 @@
     </ul>
   </nav>
 
-  <div class="phishing-content">
+  <main class="phishing-content">
 
-  <h1><br><br>What Is a Phishing Email?</h1>
+  <h1>What Is a Phishing Email?</h1>
 
   <h2>What Is the Goal of a Phishing Email?</h2>
   <p>The main purpose of a phishing email is to get you to take an action that benefits the attacker. This can include:</p>
@@ -84,6 +85,27 @@
     </tbody>
   </table>
 
+  <h2>Phishing Today</h2>
+  <p>Phishing can arrive through email, text messages, social media, or phone calls. A familiar name or professional design does not guarantee that a message is genuine.</p>
+  <ul>
+    <li><strong>Fake workplace requests:</strong> A message may impersonate your manager or IT team to ask for a payment, login, or sensitive file.</li>
+    <li><strong>QR-code phishing:</strong> A QR code can hide a link to a fake sign-in page. Treat unexpected QR codes with the same care as unexpected links.</li>
+    <li><strong>Personalized messages:</strong> Scammers may use details about your work or interests to make a request feel familiar.</li>
+  </ul>
+  <p>Learn more: <a href="https://www.cyber.gc.ca/en/guidance/dont-take-bait-recognize-and-avoid-phishing-attacks" target="_blank" rel="noopener noreferrer">Canadian Centre for Cyber Security: recognizing phishing</a> and <a href="https://www.uspis.gov/news/scam-article/quishing" target="_blank" rel="noopener noreferrer">U.S. Postal Inspection Service: QR-code phishing</a>.</p>
+
+  <h2>How AI Can Make Phishing More Convincing</h2>
+  <p>Criminals can use generative AI to write convincing messages faster, improve spelling and grammar, translate emails, and tailor requests to a target. A polished email can still be a scam.</p>
+  <p>AI can also imitate voices or create fake videos to support an impersonation attempt. A follow-up call that sounds familiar is not enough to verify a suspicious email.</p>
+  <p>These risks are described in the <a href="https://www.ic3.gov/psa/2024/psa241203" target="_blank" rel="noopener noreferrer">FBI guidance on AI-assisted fraud</a>.</p>
+  <h2>Check the Request, Not Just the Writing</h2>
+  <ul>
+    <li>Check the full sender address and link destination. A familiar display name is not proof of identity.</li>
+    <li>For an unexpected login request, open the official app or use a saved website address instead of the message’s link.</li>
+    <li>Verify payment or sensitive-data requests using a contact method you already trust, such as a known phone number.</li>
+    <li>Pause when a message pressures you to act quickly or keep the request secret. Report suspicious messages to your security team.</li>
+  </ul>
+
   <h2>What Should You Do If You Receive a Phishing Email?</h2>
   <p>If you think an email might be phishing, don’t click anything. Here’s what to do instead:</p>
   <ul>
@@ -107,7 +129,7 @@
     <li>Turn on multi-factor authentication (MFA)</li>
     <li>Stay updated with cybersecurity awareness training</li>
   </ul>
-  </div>
+  </main>
 
 </body>
 </html>

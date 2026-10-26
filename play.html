@@ -3,17 +3,20 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <link rel="shortcut icon" type="x-icon" href="assets/fish-logo2.png">
+  <link rel="shortcut icon" type="x-icon" href="assets/images/fish-logo2.png">
   <title>Do not get Phished!</title>
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="style.css" /><link rel="stylesheet" href="responsive.css" />
+  <link rel="preload" href="assets/fonts/pixelon/Pixelon.ttf" as="font" type="font/ttf" crossorigin />
+  <link rel="stylesheet" href="game.css" />
+  <script src="music.js" defer></script>
 </head>
-<body>
+<body class="game-page">
   
   <!-- Navigation Bar -->
   <nav class="nav-bar">
     <ul class="nav-list">
       <div class="nav-left">
-        <li><img src="assets/fish-logo2.png" alt="Logo" class="nav-logo"></li>
+        <li><img src="assets/images/fish-logo2.png" alt="Logo" class="nav-logo"></li>
         <li><a href="index.html" class="nav-link">Game</a></li>
         <li><a href="Phishing.html" class="nav-link">Phishing?</a></li>
         <li><a href="scoreboard.html" class="nav-link">Score Board</a></li>
@@ -21,13 +24,11 @@
     </ul>
   </nav>
 
-  <img src="assets/back2.png" alt="background" class="back" />
-
+  <main class="scene-viewport">
   <div class="container">
-    <img src="assets/desk.png" alt="Background" class="background-img" />
-    <img src="assets/fish2.gif" alt="Fish" class="fish-gif" />
-    <img src="assets/bosnai.gif" alt="Plant" class="plant-gif" />
-    <img src="assets/robot.gif" alt="Robot" class="robot-gif" />
+    <img src="assets/images/deskAndMousepad.png" alt="Background" class="background-img" />
+    <img src="assets/images/fish2.gif" alt="Fish" class="fish-gif" />
+    <img src="assets/images/robot.gif" alt="Robot" class="robot-gif" />
 
     <!-- Game Interface -->
     <div class="game-overlay">
@@ -42,7 +43,7 @@
 
 
         <div id="scoreboard">
-          <img src="assets/star.png" alt="Score Icon" id="score-icon" />
+          <img src="assets/images/star.png" alt="Score Icon" id="score-icon" />
           <span id="score-text">Score: 0</span>
         </div>
 
@@ -58,6 +59,7 @@
     </div>
   </div>
 
+  </main>
   <!-- Confirm Leave Modal -->
   <div id="leaveConfirmModal" class="modal" style="display:none;">
     <div class="modal-content">
@@ -74,13 +76,17 @@
   <div id="endGameModal" class="modal" style="display: none;">
     <div class="modal-content">
       <h2 id="endTitle">Game Over</h2>
-      <pre id="endMessage" style="white-space: pre-line; text-align: left;"></pre>
+      <div id="endMessage"></div>
       <p id="scoreSaveStatus" role="status"></p>
-      <button id="playAgainBtn" class="modal-btn">Play Again</button>
+      <div class="modal-buttons">
+        <button id="playAgainBtn" class="modal-btn">Play Again</button>
+        <a href="index.html" class="modal-btn return-home">Return Home</a>
+      </div>
     </div>
   </div>
 
   <!-- Link JavaScript -->
+  <script src="email-random.js"></script>
   <script src="playScript.js"></script>
 </body>
 </html>

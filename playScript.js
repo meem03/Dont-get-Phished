@@ -69,7 +69,7 @@ const safeUserName = userName.replace(/[&<>"']/g, character => ({
  /*if (randomEmails.length > 0) {
  selectedIndex = 0;
  const firstEmail = randomEmails[0];
- emailHeader.innerHTML = `<strong>From:</strong> ${firstEmail.from.name} ${firstEmail.from.email}<br><strong>Subject:</strong> ${firstEmail.subject}`;
+ emailHeader.innerHTML = `<strong>From:</strong> ${firstEmail.from.name}<br>${firstEmail.from.email}<br><strong>Subject:</strong> ${firstEmail.subject}`;
  emailBody.innerHTML = firstEmail.body.replace('{name}', () => safeUserName);
  highlightSelected(selectedIndex);
  reportBtn.disabled = false;
@@ -199,7 +199,7 @@ Can you purchase 5 gift cards for clients? <br>Send pics.`,
       <div style="font-family: Arial, sans-serif; border: 1px solid #ddd; padding: 20px; border-radius: 8px; background-color: #f9f9f9;">
  
   <div class="fake-attachment" >
-    <img src="assets/file-icon.png" alt="File Icon" class="file-icon" />
+    <img src="assets/images/file-icon.png" alt="File Icon" class="file-icon" />
     <span>invoice398213.pdf</span>
   </div>
   <br>
@@ -268,7 +268,7 @@ we had sended a verification link on [{name}@superdevs.example]<br><br>
     body: `  <div style="font-family: Arial, sans-serif; border: 1px solid #ddd; padding: 20px; border-radius: 8px; background-color: #f9f9f9;">
  
      <div class="fake-attachment" >
-    <img src="assets/file-icon.png" alt="File Icon" class="file-icon" />
+    <img src="assets/images/file-icon.png" alt="File Icon" class="file-icon" />
     <span>HIPPA.pdf</span>
   </div>
     <br>Dear Team,<br><br>
@@ -462,7 +462,7 @@ Regards,`,
 
 
 // Pick 10 random emails
-const randomEmails = emails.sort(() => 0.5 - Math.random()).slice(0, 10);
+const randomEmails = shuffleEmails(emails).slice(0, 10);
 const emailList = document.querySelector('.email-list');
 const emailHeader = document.querySelector('.email-header');
 const emailBody = document.querySelector('.email-body');
@@ -476,7 +476,8 @@ emailList.innerHTML = '';
 // the problem is here
 randomEmails.forEach((email, index) => {
   email.phished = false;
-  const div = document.createElement('div');
+  const div = document.createElement('button');
+  div.type = 'button';
   div.className = 'email-box';
   div.innerHTML = `<strong>From:</strong> ${email.from.name}<br><strong>Subject:</strong> ${email.subject}`;
   div.style.cursor = 'pointer';
@@ -484,7 +485,7 @@ randomEmails.forEach((email, index) => {
   div.addEventListener('click', () => {
     removeQuiz();
     selectedIndex = index;
-    emailHeader.innerHTML = `<strong>From:</strong> ${email.from.name} ${email.from.email}<br><strong>Subject:</strong> ${email.subject}`;
+    emailHeader.innerHTML = `<strong>From:</strong> ${email.from.name}<br>${email.from.email}<br><strong>Subject:</strong> ${email.subject}`;
     emailBody.innerHTML = email.body.replace('{name}', () => safeUserName);
     highlightSelected(index);
  
@@ -529,7 +530,7 @@ randomEmails.forEach((email, index) => {
  if (randomEmails.length > 0) {
  selectedIndex = 0;
  const firstEmail = randomEmails[0];
- emailHeader.innerHTML = `<strong>From:</strong> ${firstEmail.from.name} ${firstEmail.from.email}<br><strong>Subject:</strong> ${firstEmail.subject}`;
+ emailHeader.innerHTML = `<strong>From:</strong> ${firstEmail.from.name}<br>${firstEmail.from.email}<br><strong>Subject:</strong> ${firstEmail.subject}`;
  emailBody.innerHTML = firstEmail.body.replace('{name}', () => safeUserName);
  highlightSelected(selectedIndex);
  reportBtn.disabled = false;
@@ -561,7 +562,7 @@ function showNextEmail() {
   if (selectedIndex + 1 < randomEmails.length) {
     selectedIndex++;
     const nextEmail = randomEmails[selectedIndex];
-    emailHeader.innerHTML = `<strong>From:</strong> ${nextEmail.from.name} ${nextEmail.from.email}<br><strong>Subject:</strong> ${nextEmail.subject}`;
+    emailHeader.innerHTML = `<strong>From:</strong> ${nextEmail.from.name}<br>${nextEmail.from.email}<br><strong>Subject:</strong> ${nextEmail.subject}`;
     emailBody.innerHTML = nextEmail.body.replace('{name}', () => safeUserName);
 
     highlightSelected(selectedIndex);
@@ -583,7 +584,7 @@ function showNextEmail() {
   } else {
     // Already at the last email
     const lastEmail = randomEmails[selectedIndex];
-    emailHeader.innerHTML = `<strong>From:</strong> ${lastEmail.from.name} ${lastEmail.from.email}<br><strong>Subject:</strong> ${lastEmail.subject}`;
+    emailHeader.innerHTML = `<strong>From:</strong> ${lastEmail.from.name}<br>${lastEmail.from.email}<br><strong>Subject:</strong> ${lastEmail.subject}`;
     emailBody.innerHTML = lastEmail.body.replace('{name}', () => safeUserName);
 
     reportBtn.disabled = true;
@@ -597,10 +598,6 @@ function showQuiz(email) {
   removeQuiz();
   const quizContainer = document.createElement('div');
   quizContainer.className = 'quiz';
-
-  quizContainer.style.top = '50%';
-  quizContainer.style.left = '91%';
-  quizContainer.style.width = '15vw';
 
   quizContainer.setAttribute('id', 'quizBox');
 
@@ -653,7 +650,7 @@ function showQuiz(email) {
  
     if (isCorrect) {
       email.quizAnswered = true;
-      feedback.textContent = '✅ Correct! Great job!';
+      feedback.textContent = 'Correct! Great job!';
       feedback.classList.remove('error');
       feedback.classList.add('success');
  
@@ -665,7 +662,7 @@ function showQuiz(email) {
       }, 300);
       
     } else {
-      feedback.textContent = '❌ Not quite. Try again!';
+      feedback.textContent = 'Not quite. Try again!';
       feedback.classList.remove('success');
       feedback.classList.add('error');
  
@@ -676,7 +673,7 @@ function showQuiz(email) {
   });
 
   quizContainer.appendChild(submitBtn);
-  document.body.appendChild(quizContainer);
+  document.querySelector('.game-overlay').appendChild(quizContainer);
 }
 
 function removeQuiz() {
@@ -702,22 +699,41 @@ function checkGameEnd() {
     const title = document.getElementById('endTitle');
     const message = document.getElementById('endMessage');
 
-    let feedback = '';
-
     if (phishingMistakes > 0) {
-      title.textContent = '⚠️ You Got Phished!';
+      title.textContent = 'You Got Phished!';
+      title.className = 'feedback-error';
     } else {
-      title.textContent = '🎉 Great Job!';
+      title.textContent = 'Great Job!';
+      title.className = 'feedback-success';
     }
 
-    feedback += `📨 Total Emails Handled: ${handledCount}\n`;
-    feedback += `✅ Correctly Reported Phishing: ${correctReports}\n`;
-    feedback += `✅ Correctly Trusted Legit Emails: ${safeTrusts}\n`;
-    feedback += `❌ Mistakenly Trusted Phishing Emails: ${phishingMistakes}\n`;
-    feedback += `❌ Mistakenly Reported Legit Emails: ${falseReports}\n`;
-    feedback += `⭐ Final Score: ${score}\n`;
-
-    message.textContent = feedback;
+    const table = document.createElement('table');
+    table.className = 'results-table';
+    const caption = document.createElement('caption');
+    caption.textContent = 'Your results';
+    table.appendChild(caption);
+    const results = [
+      ['Emails reviewed', handledCount, ''],
+      ['Phishing emails correctly reported', correctReports, 'feedback-success'],
+      ['Safe emails correctly trusted', safeTrusts, 'feedback-success'],
+      ['Phishing emails trusted', phishingMistakes, 'feedback-error'],
+      ['Safe emails reported', falseReports, 'feedback-error'],
+      ['Final score', `${score} / ${randomEmails.length * 10}`, 'result-total']
+    ];
+    const tbody = document.createElement('tbody');
+    for (const [label, value, tone] of results) {
+      const row = document.createElement('tr');
+      row.className = tone;
+      const heading = document.createElement('th');
+      heading.scope = 'row';
+      heading.textContent = label;
+      const cell = document.createElement('td');
+      cell.textContent = String(value);
+      row.append(heading, cell);
+      tbody.appendChild(row);
+    }
+    table.appendChild(tbody);
+    message.replaceChildren(table);
     modal.style.display = 'flex';
     submitScore(userName, score);
   }
@@ -735,7 +751,8 @@ async function submitScore(name, score) {
       body: JSON.stringify({ name, score })
     });
     if (!response.ok) throw new Error('Score submission failed');
-    status.textContent = 'Score saved!';
+    const result = await response.json();
+    status.textContent = result.name && result.name !== name ? `Score saved as ${result.name} (your original name was taken).` : 'Score saved!';
   } catch {
     status.textContent = 'Your score could not be saved. The scoreboard may not be configured yet.';
   }
