@@ -2,6 +2,16 @@
 
 A static training game with a shared scoreboard served by a Netlify Function.
 
+## Screenshots
+
+### Main page
+
+![Main menu with the pixel-art beach monitor](docs/screenshots/main-page.jpg)
+
+### Email gameplay
+
+![Email gameplay showing a simulated suspicious sign-in email](docs/screenshots/email-gameplay.jpg)
+
 ## Hosting setup
 
 1. Create a JSONBin bin containing `{"scores": []}` in your own account.
