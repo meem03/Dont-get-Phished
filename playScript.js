@@ -479,7 +479,15 @@ randomEmails.forEach((email, index) => {
   const div = document.createElement('button');
   div.type = 'button';
   div.className = 'email-box';
-  div.innerHTML = `<strong>From:</strong> ${email.from.name}<br><strong>Subject:</strong> ${email.subject}`;
+  const senderPreview = document.createElement('span');
+  senderPreview.className = 'email-summary-from';
+  senderPreview.textContent = `From: ${email.from.name}`;
+  const subjectPreview = document.createElement('span');
+  subjectPreview.className = 'email-summary-subject';
+  subjectPreview.textContent = `Subject: ${email.subject}`;
+  div.append(senderPreview, subjectPreview);
+  div.title = `From: ${email.from.name}\nSubject: ${email.subject}`;
+  div.setAttribute('aria-label', `From: ${email.from.name}. Subject: ${email.subject}`);
   div.style.cursor = 'pointer';
  
   div.addEventListener('click', () => {

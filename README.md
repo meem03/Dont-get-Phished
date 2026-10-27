@@ -12,6 +12,14 @@ A static training game with a shared scoreboard served by a Netlify Function.
 
 ![Email gameplay showing a simulated suspicious sign-in email](docs/screenshots/email-gameplay.jpg)
 
+### iPhone layout
+
+Screenshots at a 390 × 844 CSS-pixel viewport.
+
+| Menu | Email gameplay |
+| --- | --- |
+| <img src="docs/screenshots/iphone-menu.jpg" alt="iPhone menu with robot and fish tank" width="280" /> | <img src="docs/screenshots/iphone-email-gameplay.jpg" alt="iPhone email gameplay" width="280" /> |
+
 ## Hosting setup
 
 1. Create a JSONBin bin containing `{"scores": []}` in your own account.

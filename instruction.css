@@ -8,41 +8,74 @@
 .instructions-page .nav-list, .instructions-page .overlayInst,
 .instructions-page input, .instructions-page button { font-family: 'Pixelon', monospace; }
 .instructions-page .overlayInst {
-  display: flex; flex-direction: column;
-  padding: clamp(12px, 1.4vw, 24px); gap: 10px;
-  color: #222; background: #f7fafb; overflow: auto; text-align: center;
+  container: instruction-screen / size;
+  display: flex; flex-direction: column; justify-content: safe center;
+  align-items: stretch; padding: 16px; gap: clamp(14px, 3cqh, 28px);
+  color: #222; background: #fff; overflow: auto; text-align: center;
 }
 .instructions-page .overlayInst h1 {
-  font-family: inherit; font-size: clamp(28px, 2.2vw, 40px); padding: 0;
+  flex: none; margin: 0; padding: 0; font-family: inherit;
+  font-size: 26px; line-height: 1.2; margin-bottom: 16px;
 }
-.instruction-copy { flex: 0 0 auto; overflow: visible; padding: 12px 8px 0; }
+.instruction-copy {
+  flex: none; width: 100%; max-width: 720px; align-self: center;
+  padding: 0; overflow: visible;
+}
 .instructions-page .instruction-copy p {
-  max-width: 60em; margin: 0 auto 8px !important;
-  font-size: clamp(16px, 1.15vw, 21px); line-height: 1.65;
+  margin: 0 auto 8px !important; padding: 0 !important;
+  font-size: 14px; line-height: 1.45;
 }
-.instruction-steps { list-style-position: inside; padding: 0; margin: 8px auto; max-width: 60em; }
-.instruction-steps li { font-size: clamp(16px, 1.15vw, 21px); line-height: 1.65; margin-bottom: 8px; }
-.instructions-page .instruction-copy .instruction-note {
-  padding: 10px !important; border-radius: 6px; background: #e6eff3;
+.instruction-steps { list-style-position: inside; padding: 0; margin: 10px 0; }
+.instruction-steps li { font-size: 14px; line-height: 1.45; margin-bottom: 6px; }
+.point-guide { display: grid; gap: 5px; margin: 10px auto; max-width: 620px; }
+.instructions-page .instruction-copy .point-guide p {
+  width: 100%; margin: 0 !important; padding: 6px 8px !important;
+  border-radius: 5px; color: #222;
 }
-.point-guide { display: grid; gap: 6px; margin: 8px auto; max-width: 44em; }
-.instructions-page .instruction-copy .point-guide p { width: 100%; margin: 0 !important; padding: 10px !important; border-radius: 5px; color: #222; }
 .points-correct { background: #dfefdf; }
 .points-caution { background: #faf0cd; }
 .points-mistake { background: #f4dede; }
-.instructions-page #nameForm { display: grid; grid-template-columns: minmax(0, 1fr); gap: 8px; margin: auto 0 0; flex: 0 0 auto; }
-.name-entry { display: flex; align-items: center; justify-content: center; flex-wrap: wrap; gap: 12px; }
-.instructions-page #nameForm label { font-size: clamp(16px, 1.2vw, 21px) !important; }
+.instructions-page #nameForm {
+  flex: none; display: grid; grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center; align-self: center; width: 100%; max-width: 460px;
+  gap: 8px 12px; margin: 8px 0 0; padding: 0 !important;
+}
+.name-entry { display: grid; grid-template-columns: auto minmax(0, 1fr); align-items: center; gap: 8px; min-width: 0; }
+.instructions-page #nameForm label { font-size: 16px !important; white-space: nowrap; padding: 0 !important; }
 .instructions-page #userName {
-  width: min(200px, 100%) !important; font-size: 16px !important;
-  border: 2px solid #abc4cf; border-radius: 5px; padding: 8px; background: #fff; color: #222;
+  width: 100% !important; min-width: 0; max-width: none;
+  min-height: 44px; font-size: 16px !important; margin: 0 !important;
+  border: 2px solid #abc4cf; border-radius: 5px; padding: 6px 8px;
+  background: #fff; color: #222;
 }
 .instruction-play {
-  justify-self: end; min-width: 120px; min-height: 46px; padding: 10px 24px;
-  font-size: 22px; color: #222; background: #cfe7ef;
+  justify-self: end; min-width: 80px; min-height: 44px; padding: 8px 16px;
+  font-size: 18px; color: #222; background: #cfe7ef;
   border: 2px solid #8eafbd; border-radius: 5px; cursor: pointer;
   box-shadow: 0 3px 0 #8eafbd;
 }
 .instruction-play:hover { background: #bddce7; }
-#nameStatus { margin: 0; padding: 0; font-size: 14px; line-height: 1.4; color: #31576a; }
+#nameStatus { grid-column: 1 / -1; grid-row: 2; margin: 0; padding: 0; font-size: 12px; line-height: 1.3; color: #31576a; }
 #nameStatus:empty { display: none; }
+@media (max-width: 900px) {
+  .instructions-page .overlayInst { padding: 36px 12px 22px; }
+}
+@media (max-width: 360px) and (max-height: 650px) {
+  .instructions-page .overlayInst { gap: 12px; }
+  .instructions-page .overlayInst h1 { margin-bottom: 0; }
+  .instructions-page #nameForm { margin-top: 0; }
+}
+/* Respond to the actual monitor height, rather than the viewport width. */
+@container instruction-screen (max-height: 400px) {
+  .instructions-page .overlayInst h1 { font-size: 24px; margin-bottom: 4px; }
+  .instructions-page .instruction-copy p, .instruction-steps li { font-size: 12px; line-height: 1.3; }
+  .instruction-steps { margin: 6px 0; }
+  .instruction-steps li { margin-bottom: 4px; }
+  .point-guide { grid-template-columns: repeat(3, minmax(0, 1fr)); margin: 6px 0; }
+  .instructions-page .instruction-copy .point-guide p { padding: 5px !important; }
+}
+@container instruction-screen (max-width: 340px) and (max-height: 440px) {
+  .instructions-page .instruction-copy p, .instruction-steps li { font-size: 12px; line-height: 1.3; }
+  .instruction-steps { margin: 6px 0; }
+  .instruction-steps li { margin-bottom: 4px; }
+}

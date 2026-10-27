@@ -90,4 +90,37 @@ body.game-page { height: 100vh; height: 100dvh; min-height: 0; overflow: hidden;
 @media (max-width: 900px) {
   .scene-viewport > .container { width: calc(100% - 24px); height: calc(100cqh - 24px); min-height: 0; margin: 8px auto 16px; }
 }
+/* Shared mobile phone shell for the menu, instructions, and inbox. */
+@media (max-width: 900px) {
+  .game-page .scene-viewport > .container {
+    width: min(460px, calc(100% - 24px)); height: calc(100cqh - 24px);
+    margin: 10px auto 14px; border: 7px solid #344b57;
+    border-radius: 34px; background: #fff; box-shadow: 0 4px 0 #a8c4d1;
+  }
+  .game-page .container::before {
+    content: ''; position: absolute; top: 9px; left: 50%; transform: translateX(-50%);
+    width: 64px; height: 13px; border-radius: 12px; background: #344b57;
+    z-index: 4; pointer-events: none;
+  }
+  .game-page .container::after {
+    content: ''; position: absolute; bottom: 7px; left: 50%; transform: translateX(-50%);
+    width: 72px; height: 4px; border-radius: 4px; background: #a8b9c1;
+    z-index: 4; pointer-events: none;
+  }
+  .game-page .game-overlay, .instructions-page .overlayInst {
+    border-radius: 26px; background: #fff;
+  }
+  .game-page .game-overlay { padding: 32px 0 18px; }
+  .instructions-page .overlayInst { padding: 38px 14px 22px; }
+  .game-page .sidebar { background: #e7eff3; color: #263b46; }
+  .game-page .email-box { border: 1px solid #abc0ca; }
+  .game-page .email-preview { background: #fff; }
+}
+@media (max-width: 600px) {
+  .game-page .game-overlay { grid-template-rows: 116px minmax(0, 1fr); }
+  .game-page .sidebar h3 { font-size: 18px; }
+  .game-page .email-header { font-size: 15px; line-height: 1.4; }
+  .game-page .email-body { font-size: 17px; }
+  .game-page .email-actions { padding-bottom: 3px; }
+}
 @media (prefers-reduced-motion: reduce) { * { scroll-behavior: auto !important; transition: none !important; } }
